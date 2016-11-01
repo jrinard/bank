@@ -29,6 +29,7 @@ $(document).ready(function() {
     event.preventDefault();
     var withdraw = parseInt($("#withdrawalAmount").val());
     var output = initialBalance.withdraw(withdraw);
+    initialBalance.balance = output;
     console.log(output);
   });
 
@@ -36,8 +37,9 @@ $(document).ready(function() {
     event.preventDefault();
     var deposit = parseInt($("#depositAmount").val());
     var output = initialBalance.deposit(deposit);
+    initialBalance.balance = output;
     console.log(output);
   });
 
-});
   });
+});
