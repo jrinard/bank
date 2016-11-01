@@ -28,31 +28,35 @@ $(document).ready(function() {
     var name = $("#userName").val();
     var input = parseInt($("#deposit").val());
 
-    $(".userName").text(name);
+    if (name === "") {
+      alert("Please fill all fields");
+    } else {
 
-    var initialBalance = new BankAccount(name, input);
-    var balance = initialBalance.balance;
-    $(".output").text(balance);
-    $("#result").show();
-    clearFields();
+      $(".userName").text(name);
 
-    $("#withdrawal-button").submit(function(event){
-      event.preventDefault();
-      var withdraw = parseInt($("#withdrawalAmount").val());
-      var output = initialBalance.withdraw(withdraw);
-      initialBalance.balance = output;
-      $(".output").text(output);
+      var initialBalance = new BankAccount(name, input);
+      var balance = initialBalance.balance;
+      $(".output").text(balance);
+      $("#result").show();
       clearFields();
-    });
 
-    $("#deposit-button").submit(function(event){
-      event.preventDefault();
-      var deposit = parseInt($("#depositAmount").val());
-      var output = initialBalance.deposit(deposit);
-      initialBalance.balance = output;
-      $(".output").text(output);
-      clearFields();
-   });
+      $("#withdrawal-button").submit(function(event){
+        event.preventDefault();
+        var withdraw = parseInt($("#withdrawalAmount").val());
+        var output = initialBalance.withdraw(withdraw);
+        initialBalance.balance = output;
+        $(".output").text(output);
+        clearFields();
+      });
 
+      $("#deposit-button").submit(function(event){
+        event.preventDefault();
+        var deposit = parseInt($("#depositAmount").val());
+        var output = initialBalance.deposit(deposit);
+        initialBalance.balance = output;
+        $(".output").text(output);
+        clearFields();
+      });
+    }
   });
 });

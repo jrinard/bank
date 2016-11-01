@@ -18,10 +18,27 @@ h3, h1 {
   text-align: center;
 }
 
+.well h3 {
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
+}
+
+.output {
+  color: green;
+}
+
+.dollar-sign {
+  color: green;
+}
+
 .userName {
   color: #5384CF;
 }
 
+.well, .jumbotron {
+  box-shadow: 5px 5px 5px black;
+  border-radius: 5%;
+}
 
 .form-group {
   margin: 20px;
