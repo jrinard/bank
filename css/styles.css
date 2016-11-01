@@ -1,3 +1,28 @@
+* {
+  font-family: helvetica, arial, sans-serif;
+}
+
 #result {
   display:none;
+}
+
+body {
+  background-image: url(../img/gold.jpg);
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+h3, h1 {
+  text-align: center;
+}
+
+.userName {
+  color: #5384CF;
+}
+
+
+.form-group {
+  margin: 20px;
 }

@@ -28,6 +28,8 @@ $(document).ready(function() {
     var name = $("#userName").val();
     var input = parseInt($("#deposit").val());
 
+    $(".userName").text(name);
+
     var initialBalance = new BankAccount(name, input);
     var balance = initialBalance.balance;
     $(".output").text(balance);
