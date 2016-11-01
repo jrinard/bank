@@ -10,7 +10,6 @@ function clearFields(){
   $("#depositAmount").val("");
 }
 
-
 BankAccount.prototype.withdraw = function(withdrawalAmount) {
   var balance = this.balance - withdrawalAmount;
   return balance;
@@ -20,7 +19,6 @@ BankAccount.prototype.deposit = function(depositAmount) {
   var balance = this.balance + depositAmount;
   return balance;
 }
-
 
 $(document).ready(function() {
   $("form#create").submit(function(event) {
