@@ -3,6 +3,14 @@ function BankAccount(name, deposit) {
   this.balance = deposit;
 }
 
+function clearFields(){
+  $("#userName").val("");
+  $("#deposit").val("");
+  $("#withdrawalAmount").val("");
+  $("#depositAmount").val("");
+}
+
+
 BankAccount.prototype.withdraw = function(withdrawalAmount) {
   var balance = this.balance - withdrawalAmount;
   return balance;
@@ -22,24 +30,27 @@ $(document).ready(function() {
 
     var initialBalance = new BankAccount(name, input);
     var balance = initialBalance.balance;
-    console.log(balance);
+    $(".output").text(balance);
+    $("#result").show();
+    clearFields();
 
+    $("#withdrawal-button").submit(function(event){
+      event.preventDefault();
+      var withdraw = parseInt($("#withdrawalAmount").val());
+      var output = initialBalance.withdraw(withdraw);
+      initialBalance.balance = output;
+      $(".output").text(output);
+      clearFields();
+    });
 
-  $("#withdrawal-button").submit(function(event){
-    event.preventDefault();
-    var withdraw = parseInt($("#withdrawalAmount").val());
-    var output = initialBalance.withdraw(withdraw);
-    initialBalance.balance = output;
-    console.log(output);
-  });
-
-  $("#deposit-button").submit(function(event){
-    event.preventDefault();
-    var deposit = parseInt($("#depositAmount").val());
-    var output = initialBalance.deposit(deposit);
-    initialBalance.balance = output;
-    console.log(output);
-  });
+    $("#deposit-button").submit(function(event){
+      event.preventDefault();
+      var deposit = parseInt($("#depositAmount").val());
+      var output = initialBalance.deposit(deposit);
+      initialBalance.balance = output;
+      $(".output").text(output);
+      clearFields();
+   });
 
   });
 });
